@@ -1,0 +1,17 @@
+<div class="ij-autocomplete">
+  <div class="ij-autocomplete-searchfield">
+    <input type="text" [formControl]="ijSearchTerm" [hidden]="selectedFlag"/>
+    <div class="selected-item" *ngIf="selectedFlag && selectedItem">
+      {{selectedItem[bindField]}} <span (click)="clearSelection()" style="float:right;cursor:pointer;">&times;</span>
+    </div>
+  </div>
+  <div class="ij-autocomplete-suggestions">
+    <div>
+      <ul class="ij-autocomplete-ul">
+        <li *ngFor="let filteredItem of filteredItems; let i = index;" (click)="selectItem(filteredItem)">
+          {{filteredItem[bindField] }}
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
